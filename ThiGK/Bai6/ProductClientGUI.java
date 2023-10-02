@@ -34,34 +34,29 @@ public class ProductClientGUI {
             public void actionPerformed(ActionEvent e) {
                 try {
                     String productCode = codeTextField.getText();
-
-                    // Tạo đối tượng Product từ mã sản phẩm nhập vào
-                    Product product = new Product(productCode, "", "", 0.0);
-
+        
                     // Gọi phương thức từ máy chủ
                     ProductService productService = (ProductService) Naming.lookup("rmi://localhost:3456/ProductService");
-                    List<Product> products = productService.findProductByCode(product);
-
-                    // Kiểm tra xem danh sách sản phẩm có rỗng không
-                    if (!products.isEmpty()) {
+                    Product product = productService.findProductByCode(productCode);
+        
+                    // Kiểm tra xem sản phẩm có null không
+                    if (product != null) {
                         // Hiển thị kết quả
                         resultTextArea.setText("");
-                        for (Product p : products) {
-                            resultTextArea.append("Mã sản phẩm: " + p.getCode() + "\n");
-                            resultTextArea.append("Tên sản phẩm: " + p.getName() + "\n");
-                            resultTextArea.append("Đơn vị tính: " + p.getUnit() + "\n");
-                            resultTextArea.append("Giá: " + p.getPrice() + "\n");
-                            resultTextArea.append("------------\n");
-                        }
+                        resultTextArea.append("Mã sản phẩm: " + product.getCode() + "\n");
+                        resultTextArea.append("Tên sản phẩm: " + product.getName() + "\n");
+                        resultTextArea.append("Đơn vị tính: " + product.getUnit() + "\n");
+                        resultTextArea.append("Giá: " + product.getPrice() + "\n");
+                        resultTextArea.append("------------\n");
                     } else {
-                        resultTextArea.setText("Không tìm thấy sản phẩm");
+                        resultTextArea.setText("Không tìm thấy sản phẩm có mã = " + productCode);
                     }
                 } catch (Exception ex) {
                     ex.printStackTrace();
                 }
             }
         });
-
+        
         frame.setVisible(true);
     }
 }

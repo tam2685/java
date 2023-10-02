@@ -9,17 +9,18 @@ public class ProductClient {
             Scanner scanner = new Scanner(System.in);
             System.out.print("Enter code: ");
             String productCode = scanner.nextLine();
-            Product product = new Product(productCode, "", "", 0.0);
-
+        
             ProductService productService = (ProductService) Naming.lookup("rmi://localhost:3456/ProductService");
-            List<Product> products = productService.findProductByCode(product);
-
-            for (Product p : products) {
-                System.out.println("Code: " + p.getCode());
-                System.out.println("Name: " + p.getName());
-                System.out.println("Unit: " + p.getUnit());
-                System.out.println("Price: " + p.getPrice());
+            Product product = productService.findProductByCode(productCode);
+        
+            if (product != null) {
+                System.out.println("Code: " + product.getCode());
+                System.out.println("Name: " + product.getName());
+                System.out.println("Unit: " + product.getUnit());
+                System.out.println("Price: " + product.getPrice());
                 System.out.println("------------");
+            } else {
+                System.out.println("Product not found.");
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -45,13 +45,12 @@ public class ProductServiceImpl extends UnicastRemoteObject implements ProductSe
     }
 
     @Override
-    public List<Product> findProductByCode(Product product) throws RemoteException {
-        List<Product> result = new ArrayList<>();
-        for (Product p : productList) {
-            if (p.getCode().equals(product.getCode())) {
-                result.add(p);
+    public Product findProductByCode(String productCode) throws RemoteException {
+        for (Product product : productList) {
+            if (product.getCode().equals(productCode)) {
+                return product;
             }
         }
-        return result;
+        return null; // Return null if no matching product is found
     }
 }
