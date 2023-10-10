@@ -6,7 +6,7 @@ public class RMIClient {
     public static void main(String[] args) {
         try {
             // Look up the remote object by its name
-            String registryURL = "rmi://localhost:3456/ScoreService";
+            String registryURL = "rmi://localhost:3457/ScoreService";
             ScoreService scoreService = (ScoreService) Naming.lookup(registryURL);
 
             // Thực hiện nhập mã sinh viên hoặc mã môn học và gọi phương thức tương ứng
