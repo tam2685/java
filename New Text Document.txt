@@ -1,0 +1,13 @@
+Bài 1 : viết chương trình theo kĩ thuật RMI. Chương trình dùng để tính toán số fibonaci. Client gửi qua Server số n, Server trả về hàm f(n), f(n) là hàm fibonaci 
+Bài 2: tương tự bài 1 . dùng để kiểm tra có phải là số nguyên tố hay không (số lớn)
+Bài 3 :viết chương trình theo kĩ thuật RMI.. Tính diện tích tam giác khi biết 3 cạnh
+Bài 4: tương tự bài 1. Tính + - x : 2 số phức
+Bài 5 : tương tự bài 1
+tìm thông tin khách hàng dựa vào mã khách hàng. có db
+
+Khung  4
+Giao diện 2
+Xử lí 4
+
+
+Bài tập 6 khả năng thi : viết ứng dụng phân tán theo kĩ thuật RMI bằng java . Ứng dụng dùng để tìm kiếm thông tin sản phẩm theo mã sản phẩm (có kết nối database). Thông tin sản phẩm : Mã sản phẩm , tên sản phẩm , đơn vị tính , giá . (ở interface dùng cách truyền serialize object rmi)
