@@ -1,0 +1,9 @@
+CREATE DATABASE customer_db;
+
+USE customer_db;
+
+CREATE TABLE customer (
+    customerID INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(50) NOT NULL
+);
