@@ -1,10 +1,20 @@
-
 import java.io.Serializable;
 
 public class Customer implements Serializable {
+    private static final long serialVersionUID = 1L;
     private int customerID;
     private String name;
     private String address;
+    
+    public Customer(){
+        
+    }
+
+    public Customer(int customerID,String name ,String address) {
+        this.customerID = customerID;
+        this.name = name;
+        this.address = address;
+    }
 
     public int getCustomerID() {
         return customerID;

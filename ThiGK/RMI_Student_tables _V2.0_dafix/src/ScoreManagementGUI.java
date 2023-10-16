@@ -32,8 +32,8 @@ public class ScoreManagementGUI {
     private void initializeGUI() {
         frame = new JFrame("Quản lý Điểm số");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
-    
+        frame.setSize(900, 600);
+
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel buttonOutputPanel = new JPanel(new BorderLayout());
 
@@ -44,12 +44,12 @@ public class ScoreManagementGUI {
         searchPanel.add(inputField);
         searchPanel.add(searchButton);
         mainPanel.add(searchPanel, BorderLayout.NORTH);
-    
+
 
         outputArea = new JTextArea(3, 20);
         outputArea.setEditable(false); // Để không cho người dùng chỉnh sửa nội dung
         JScrollPane outputScrollPane = new JScrollPane(outputArea);
-        
+
         // Thêm outputArea vào mainPanel
         buttonOutputPanel.add(outputScrollPane, BorderLayout.SOUTH);
 
@@ -93,7 +93,7 @@ public class ScoreManagementGUI {
     private void connectToRMIService() {
         try {
             // Kết nối tới dịch vụ RMI
-            String registryURL = "rmi://localhost:3457/ScoreService";
+            String registryURL = "rmi://localhost:3458/ScoreService";
             scoreService = (ScoreService) Naming.lookup(registryURL);
         } catch (RemoteException e) {
             e.printStackTrace();
